@@ -8,16 +8,17 @@
 </head>
 <body>
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="main" style="width: 357px;height:340px;"></div>
+    <div id="main" style="width: 357px;height:340px;background-color: #F8F8F8;"></div>
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('main'));
+        var myChart = echarts.init(document.getElementById('main'),);
 
         // 指定图表的配置项和数据
 
 option = {
+	color: ['#4ea397', '#22c3aa', '#7bd9a5'],
     title: {
-        text: '2018年各月血压/脉率变化趋势',
+        text: '2018年血压/脉率变化趋势',
     },
     tooltip: {
         trigger: 'axis',
@@ -28,14 +29,9 @@ option = {
             }
         }
     },
-    toolbox: {
-        feature: {
-            saveAsImage: {show: true}
-        }
-    },
     legend: {
 		bottom: '0%',
-        data:['收缩压','舒张压','脉率']
+        data:['收缩压','舒张压','脉率'],
     },
     grid: {
         left: '5%',
