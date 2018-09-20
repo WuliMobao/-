@@ -7,8 +7,15 @@
     <script src="echarts.js"></script>
 </head>
 <body>
+	<style>
+	body {
+		height:100%;
+		width: 100%;
+		margin: 0;
+		}
+	</style>
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="main" style="width: 357px;height:340px;background-color: #F8F8F8;"></div>
+	<div id="main" style="width:357px;height:346px;background-color:#F8F8F8;"></div>
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'),);
