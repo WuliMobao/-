@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 357px;height:346px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+
+option = {
+    title: {
+        text: '2018年各月血压/脉率变化趋势',
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            crossStyle: {
+                color: '#999'
+            }
+        }
+    },
+    toolbox: {
+        feature: {
+            saveAsImage: {show: true}
+        }
+    },
+    legend: {
+		left: '1%',
+		top: '5%',
+        data:['收缩压','舒张压','脉率']
+    },
+    grid: {
+        left: '5%',
+        right: '4%',
+        top: '15%',
+        bottom: '0%',
+        containLabel: true
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+            axisPointer: {
+                type: 'shadow'
+            }
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            name: '血压（mmHg）',
+            min: 60,
+            max: 200,
+            interval: 20,
+            axisLabel: {
+                formatter: '{value}'
+            }
+        },
+        {
+            type: 'value',
+            name: '脉率（bpm）',
+            min: 35.4,
+            max: 41,
+            interval: 0.4,
+            axisLabel: {
+                formatter: '{value}'
+            }
+        }
+    ],
+    series: [
+        {
+            name:'收缩压',
+            type:'line',
+            data:[115, 123, 121, 129, 110, 114, 130, 120, 119, 126, 113, 116]
+        },
+        {
+            name:'舒张压',
+            type:'line',
+            data:[87, 75, 78, 72, 69, 75, 80, 80, 79, 85, 67, 79]
+        },
+        {
+            name:'平均体温',
+            type:'line',
+            yAxisIndex: 1,
+            data:[2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+        }
+    ]
+};
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</body>
+</html>
