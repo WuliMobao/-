@@ -34,15 +34,14 @@ option = {
         }
     },
     legend: {
-		left: '1%',
-		top: '5%',
+		bottom: '0%',
         data:['收缩压','舒张压','脉率']
     },
     grid: {
         left: '5%',
-        right: '4%',
-        top: '15%',
-        bottom: '0%',
+        right: '3%',
+        top: '16%',
+        bottom: '7%',
         containLabel: true
     },
     xAxis: [
@@ -58,8 +57,8 @@ option = {
         {
             type: 'value',
             name: '血压（mmHg）',
-            min: 60,
-            max: 200,
+            min: 0,
+            max: 140,
             interval: 20,
             axisLabel: {
                 formatter: '{value}'
@@ -68,9 +67,9 @@ option = {
         {
             type: 'value',
             name: '脉率（bpm）',
-            min: 35.4,
-            max: 41,
-            interval: 0.4,
+            min: 40,
+            max: 110,
+            interval: 10,
             axisLabel: {
                 formatter: '{value}'
             }
@@ -88,10 +87,10 @@ option = {
             data:[87, 75, 78, 72, 69, 75, 80, 80, 79, 85, 67, 79]
         },
         {
-            name:'平均体温',
+            name:'脉率',
             type:'line',
             yAxisIndex: 1,
-            data:[2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 6.2]
+            data:[76, 66, 69, 72, 80, 68, 74, 75, 78, 66, 65, 69]
         }
     ]
 };
