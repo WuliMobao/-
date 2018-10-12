@@ -15,7 +15,7 @@
 		}
 	</style>
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-	<div id="main" style="width:357px;height:346px;background-color:#F8F8F8;"></div>
+	<div id="main" style="width:357px;height:346px;background-color:#494A5F;"></div>
     <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('main'),);
@@ -26,6 +26,9 @@ option = {
 	color: ['#1ABC9C', '#EDBC34', '#049DFF'],
     title: {
         text: '血压/脉率变化趋势（平均值）',
+		textStyle: {
+		color: '#FFF'
+		},
 		left: 'center'
     },
     tooltip: {
@@ -34,10 +37,16 @@ option = {
             type: 'cross',
             crossStyle: {
                 color: '#999'
+            },
+			label: {
+            backgroundColor: '#999'
             }
         }
     },
     legend: {
+		textStyle: {
+		color: '#FFF'
+		},
 		bottom: '0%',
         data:['收缩压','舒张压','脉率'],
     },
@@ -54,6 +63,18 @@ option = {
             data: ['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
             axisPointer: {
                 type: 'shadow'
+            },
+            axisLabel: {
+                    textStyle: {
+                        color: '#fff'
+                    }
+            },
+            axisLine: {
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#fff',
+                        width:'2'
+                    }
             }
         }
     ],
@@ -65,7 +86,17 @@ option = {
             max: 180,
             interval: 20,
             axisLabel: {
-                formatter: '{value}'
+                formatter: '{value}',
+                textStyle: {
+                        color: '#fff'
+                    }
+            },
+            axisLine: {
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#fff',
+                        width:'2'
+                    }
             }
         },
         {
@@ -75,15 +106,43 @@ option = {
             max: 110,
             interval: 10,
             axisLabel: {
-                formatter: '{value}'
+                formatter: '{value}',
+                textStyle: {
+                        color: '#fff'
+                    }
+            },
+            axisLine: {
+                    lineStyle: {
+                        type: 'solid',
+                        color: '#fff',
+                        width:'2'
+                    }
             }
-        }
+        },
     ],
     series: [
         {
             name:'收缩压',
             type:'line',
-            data:[115, 123, 121, 129, 110, 114, 130, 120, 119, 126, 113, 116]
+            data:[115, 123, 121, 129, 110, 114, 130, 120, 119, 126, 113, 116],
+            markArea: {
+                itemStyle: {
+                    color: 'rgb(225, 0, 0,0.4)'
+                },
+                label: {
+                    color: '#FFF',
+                    fontWeight: 'bolder',
+                    position: 'insideLeft',
+                },
+                data: [ [{
+                    name: '标\n准\n血\n压\n范\n围',
+                    yAxis: '80'
+                }, {
+                    yAxis: '120'
+                }], 
+                ],
+				silent: true
+            }
         },
         {
             name:'舒张压',
@@ -95,7 +154,7 @@ option = {
             type:'line',
             yAxisIndex: 1,
             data:[76, 66, 69, 72, 80, 68, 74, 75, 78, 66, 65, 69]
-        }
+        },
     ]
 };
         // 使用刚指定的配置项和数据显示图表。
