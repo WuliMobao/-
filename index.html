@@ -31,17 +31,8 @@ option = {
 		},
 		left: 'center'
     },
-    tooltip: {
+	tooltip: {
         trigger: 'axis',
-        axisPointer: {
-            type: 'cross',
-            crossStyle: {
-                color: '#999'
-            },
-			label: {
-            backgroundColor: '#999'
-            }
-        }
     },
     legend: {
 		textStyle: {
@@ -150,7 +141,25 @@ option = {
         {
             name:'舒张压',
             type:'line',
-            data:[87, 75, 78, 72, 69, 75, 80, 80, 79, 85, 67, 79]
+            data:[87, 75, 78, 72, 69, 75, 80, 80, 79, 85, 67, 79],
+			markArea: {
+                itemStyle: {
+                    color: 'rgb(225, 0, 0,0.4)'
+                },
+                label: {
+                    color: '#FFF',
+                    fontWeight: 'bolder',
+                    position: 'insideLeft',
+                },
+                data: [ [{
+                    name: '标\n准\n血\n压\n范\n围',
+                    yAxis: '80'
+                }, {
+                    yAxis: '120'
+                }], 
+                ],
+				silent: true
+            }
         },
         {
             name:'脉率',
